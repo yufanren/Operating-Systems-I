@@ -25,15 +25,15 @@ int sleep(int);
 int uptime(void);
 
 // ulib.c
-int stat(char*, struct stat*);
-char* strcpy(char*, char*);
-void *memmove(void*, void*, int);
-char* strchr(const char*, char c);
-int strcmp(const char*, const char*);
-void printf(int, char*, ...);
-char* gets(char*, int max);
-uint strlen(char*);
-void* memset(void*, int, uint);
+int stat(char*, struct stat*);	//returns file attributes about a inode(file or directory.)
+char* strcpy(char*, char*);	//copy 2nd string to first.
+void *memmove(void*, void*, int);	//copy first n char from 2nd to 1st array, replacing.
+char* strchr(const char*, char c);	//return pointer to 1st char c in string.
+int strcmp(const char*, const char*);	//compare 2 strings, return 0 if same.
+void printf(int, char*, ...);	//print to file descriptor(1st arg) all following strings.
+char* gets(char*, int max);	//read max char from stdin and place into pointer array, form a string.
+uint strlen(char*);	//return string length.
+void* memset(void*, int, uint);	//set first n places to value uint.
 void* malloc(uint);
 void free(void*);
-int atoi(const char*);
+int atoi(const char*);	//convert number string to int.

@@ -22,7 +22,7 @@ void printList(laList* list, int count, int c, int d) {
 }
 
 void uniq(int fd, int* conditions) {
-  int n, i, c;
+  int n, i, c = 0;
   laList *current = 0, *next = 0;
   while ((n = read(fd, buf, sizeof(buf))) > 0) {
     for (i = 0; i < n; i++) {    
@@ -52,12 +52,8 @@ int
 main(int argc, char *argv[])
 {
   int fd, i;
-  char* file;
+  char* file = 0;
   int conditions[3] = {0};
-  if (argc <= 1) {
-    uniq(0, conditions);
-    exit();
-  }
 
   for (i = 1; i < argc; i++) {
     char* arg = argv[i];
@@ -81,6 +77,10 @@ main(int argc, char *argv[])
       }
     }
     else file = arg;
+  }
+    if (!file) {
+    uniq(0, conditions);
+    exit();
   }
 
   if ((fd = open(file, 0)) < 0) {

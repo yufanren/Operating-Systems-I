@@ -188,6 +188,7 @@ UPROGS=\
 	_zombie\
 	_hello\
 	_uniq\
+        _tail\
 
 fs.img: mkfs README.md example.txt test.txt $(UPROGS)
 	./mkfs fs.img README.md example.txt test.txt $(UPROGS)
@@ -269,7 +270,7 @@ qemu-vscode: fs.img xv6.img launch.json
 EXTRA=\
 	mkfs.c ulib.c user.h cat.c echo.c forktest.c grep.c kill.c\
 	ln.c ls.c mkdir.c rm.c stressfs.c usertests.c wc.c zombie.c\
-	printf.c umalloc.c hello.c uniq.c\
+	printf.c umalloc.c hello.c uniq.c tail.c\
 	README example.txt test.txt dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
 

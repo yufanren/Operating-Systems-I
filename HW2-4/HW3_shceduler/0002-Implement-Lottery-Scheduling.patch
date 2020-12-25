@@ -1,0 +1,34 @@
+From 27e3fb3d19488d40457b0846e07c20f2d6be9231 Mon Sep 17 00:00:00 2001
+From: yufan ren <yr975@nyu.edu>
+Date: Mon, 26 Oct 2020 19:29:39 -0400
+Subject: [PATCH 2/3] Implement Lottery Scheduling
+
+---
+ lotterytest.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/lotterytest.c b/lotterytest.c
+index 4968acf..cb86d87 100644
+--- a/lotterytest.c
++++ b/lotterytest.c
+@@ -26,13 +26,13 @@ int main() {
+     gettime(&start);
+     printf(0, "starting test at %d hours %d minutes %d seconds\n", start.hour, start.minute, start.second);
+     if ((pid1 = fork()) == 0) {
+-        settickets(80);
+-        spin(80);
++        settickets(10);
++        spin(10);
+         exit();
+     }
+     else if ((pid2 = fork()) == 0) {
+-        settickets(20);
+-        spin(20);
++        settickets(90);
++        spin(90);
+         exit();
+     }
+     // Go to sleep and wait for subprocesses to finish
+-- 
+1.9.1
+

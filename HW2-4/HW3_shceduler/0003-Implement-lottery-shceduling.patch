@@ -1,0 +1,25 @@
+From eba9ec9a1416ee3d459ac31c4c33c9717423308b Mon Sep 17 00:00:00 2001
+From: yufan ren <yr975@nyu.edu>
+Date: Mon, 26 Oct 2020 20:17:16 -0400
+Subject: [PATCH 3/3] Implement lottery shceduling
+
+---
+ proc.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/proc.c b/proc.c
+index 7d10b0d..4ace1f0 100644
+--- a/proc.c
++++ b/proc.c
+@@ -26,6 +26,8 @@ void
+ pinit(void)
+ {
+   initlock(&ptable.lock, "ptable");
++  // Seed RNG with current time
++  sgenrand(unixtime());
+ }
+ 
+ //PAGEBREAK: 32
+-- 
+1.9.1
+
